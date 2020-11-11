@@ -16,6 +16,10 @@ servidor.get('/', async (req,res) => {
     res.json('API Rodando');
 });
 
+servidor.get('/test', async (req,res) => {
+    res.json('Funcionou');
+});
+
 //#region Categoria
 
 servidor.get('/categoria', async (req,res) => {
@@ -333,4 +337,4 @@ servidor.delete('/itemCompra/:id', async (req,res) => {
 
 //#endregion
 
-servidor.listen(8080,()=>{console.log('Rodando o Servidor');})
+servidor.listen(process.env.port || 3000,()=>{console.log('Rodando o Servidor');})
