@@ -25,7 +25,7 @@ servidor.get('/test', async (req,res) => {
     res.json('Funcionou');
 });
 
-servidor.listen(process.env.port || 3000,()=>{console.log('Rodando o Servidor');})
+servidor.listen(process.env.PORT || 3000,()=>{console.log('Rodando o Servidor');})
 
 /*
 //#region Categoria
