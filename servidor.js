@@ -12,6 +12,10 @@ const servidor = express();
 
 servidor.use(bodyParser.json());
 
+servidor.get('/', async (req,res) => {
+    res.json('API Rodando');
+});
+
 //#region Categoria
 
 servidor.get('/categoria', async (req,res) => {
