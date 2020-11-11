@@ -6,14 +6,13 @@ const endereco = require('./endereco');
 const produto = require('./produto');
 const usuario = require('./usuario');
 const lista = require('./lista');
-const itemCompra = require('./itemCompra');
+const itemCompra = require('./item_compra');
 
 const servidor = express();
 
 servidor.use(bodyParser.json());
 
-servidor.get('/teste', async (req,res) => {
-    console.log('Sucesso!');
+servidor.get('/', async (req,res) => {
     res.json('API Rodando');
 });
 
