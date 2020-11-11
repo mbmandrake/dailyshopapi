@@ -12,7 +12,7 @@ const servidor = express();
 
 servidor.use(bodyParser.json());
 
-servidor.get('/', async (req,res) => {
+servidor.get('/teste', async (req,res) => {
     console.log('Sucesso!');
     res.json('API Rodando');
 });
