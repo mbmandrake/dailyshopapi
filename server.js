@@ -1,33 +1,22 @@
 const express = require('express');
 const cors = require('cors');
-// const bodyParser = require('body-parser');
-// const categoria = require('./categoria');
-// const grupo = require('./grupo');
-// const endereco = require('./endereco');
-// const produto = require('./produto');
-// const usuario = require('./usuario');
-// const lista = require('./lista');
-// const itemCompra = require('./item_compra');
+require('dotenv').config();
+const bodyParser = require('body-parser');
+const categoria = require('./categoria');
+const grupo = require('./grupo');
+const endereco = require('./endereco');
+const produto = require('./produto');
+const usuario = require('./usuario');
+const lista = require('./lista');
+const itemCompra = require('./item_compra');
 
 const servidor = express();
 
 servidor.use(cors());
 
-// servidor.use(bodyParser.json());
+servidor.use(bodyParser.json());
 servidor.use(express.json());
 
-
-servidor.get('/', async (req,res) => {
-    res.json('API Rodando');
-});
-
-servidor.get('/test', async (req,res) => {
-    res.json('Funcionou');
-});
-
-servidor.listen(process.env.PORT || 3000,()=>{console.log('Rodando o Servidor');})
-
-/*
 //#region Categoria
 
 servidor.get('/categoria', async (req,res) => {
@@ -344,4 +333,5 @@ servidor.delete('/itemCompra/:id', async (req,res) => {
 });
 
 //#endregion
-*/
+
+servidor.listen(process.env.PORT || 3000,()=>{console.log('Rodando o Servidor');})
