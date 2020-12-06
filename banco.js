@@ -10,6 +10,6 @@ const sql = require('mssql');
 //     }
 // };
 
-const config ='mssql://dailyshoppiiv:12345678am@mssql914.umbler.com,5003/dailyshoppiiv';
+const config ='mssql://dailyshoppi:12345678am@mssql914.umbler.com,5003/dailyshoppi';
 
 module.exports.config = config;
