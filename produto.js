@@ -16,7 +16,7 @@ async function getListaProduto(){
     let pool = await sql.connect(banco.config);
 
     let result = await pool.request().query(
-        'SELECT ID_PRODUTO AS ID, TX_NOME AS NOME, VALOR_PRODUTO AS VALOR, TX_VARIACAO AS VARIACAO, PESO, DIMENSAO, ID_CATEGORIA AS CATEGORIA, BL_ATIVO AS STATUS, DT_REGISTRO from PRODUTO'
+        'SELECT ID_PRODUTO AS ID, TX_NOME AS NOME, VALOR_PRODUTO AS VALOR, TX_VARIACAO AS VARIACAO, PESO, DIMENSAO, ID_CATEGORIA AS CATEGORIA, BL_ATIVO AS STATUS, DT_REGISTRO from PRODUTO where BL_ATIVO = 1'
     );
 
     return(result.recordset);
