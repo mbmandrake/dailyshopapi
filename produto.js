@@ -31,15 +31,6 @@ async function getListaProdutoPorId(id){
     return(result.recordset[0]);
 };
 
-async function getListaProdutoPorCategoria(id){
-    let pool = await sql.connect(banco.config);
-
-    let result = await pool.request().query(
-        'SELECT ID_PRODUTO AS ID, TX_NOME AS NOME, VALOR_PRODUTO AS VALOR, TX_VARIACAO AS VARIACAO, PESO, DIMENSAO, ID_CATEGORIA AS CATEGORIA, BL_ATIVO AS STATUS, DT_REGISTRO from PRODUTO WHERE ID_CATEGORIA = ' + id
-    );
-    return(result.recordset[0]);
-};
-
 async function addProduto(produto){
     let pool = await sql.connect(banco.config);
 
