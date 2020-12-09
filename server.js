@@ -177,7 +177,7 @@ servidor.put('/produto', async (req,res) => {
     prod.variacao = dados.variacao;
     prod.peso = dados.peso;
     prod.dimensao = dados.dimensao;
-    prod.categoria = dados.categoria;
+    prod.idCategoria = dados.idCategoria;
     prod.ativo = dados.ativo;
 
     res.json(await produto.updateProduto(prod));
