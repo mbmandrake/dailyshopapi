@@ -11,7 +11,7 @@ function Grupo(){
 async function getListaGrupo(){
     let pool = await sql.connect(banco.config);
 
-    let result = await pool.request().query('SELECT ID_GRUPO AS ID, TX_NOME AS NOME, TX_DESCRICAO AS DESCRICAO, BL_ATIVO AS STATUS, DT_REGISTRO from GRUPO');
+    let result = await pool.request().query('SELECT ID_GRUPO AS ID, TX_NOME AS NOME, TX_DESCRICAO AS DESCRICAO, BL_ATIVO AS STATUS, DT_REGISTRO from GRUPO where BL_ATIVO = 1');
 
     return(result.recordset);
 };
