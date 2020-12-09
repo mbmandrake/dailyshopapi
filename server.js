@@ -7,7 +7,7 @@ const grupo = require('./grupo');
 const endereco = require('./endereco');
 const produto = require('./produto');
 const usuario = require('./usuario');
-const lista = require('./lista');
+const listaCompra = require('./lista');
 const itemCompra = require('./item_compra');
 
 const servidor = express();
@@ -245,32 +245,32 @@ servidor.delete('/usuario/:id', async (req,res) => {
 //#region Lista de Compra
 
 servidor.get('/lista', async (req,res) => {
-    let lista = await lista.getListaCompra();
+    let lista = await listaCompra.getListaCompra();
     res.json(lista);
 });
 
 servidor.get('/lista/:id', async (req,res) => {
-    let lista = await lista.getListaCompraPorId(req.params.id);
+    let lista = await listaCompra.getListaCompraPorId(req.params.id);
     res.json(lista);
 });
 
 servidor.post('/lista', async (req,res) => {
     let dados = req.body;
 
-    let list = new lista.Lista();
+    let list = new listaCompra.Lista();
     list.idUsuario = dados.idUsuario;
     list.valorTotal = dados.valorTotal;
     list.formaPagamento = dados.formaPagamento;
     list.statusPedido = dados.statusPedido;
     list.ativo = dados.ativo;
 
-    res.json(await lista.addLista(list));
+    res.json(await listaCompra.addLista(list));
 });
 
 servidor.put('/lista', async (req,res) => {
     let dados = req.body;
 
-    let list = new lista.Lista();
+    let list = new listaCompra.Lista();
     list.id = dados.id;
     list.idUsuario = dados.idUsuario;
     list.valorTotal = dados.valorTotal;
@@ -282,7 +282,7 @@ servidor.put('/lista', async (req,res) => {
 });
 
 servidor.delete('/lista/:id', async (req,res) => {
-    await lista.deleteLista(req.params.id);
+    await listaCompra.deleteLista(req.params.id);
     res.json('Status alterado com sucesso');
 });
 
