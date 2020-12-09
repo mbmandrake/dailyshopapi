@@ -10,7 +10,7 @@ function Categoria(){
 async function getListaCategoria(){
     let pool = await sql.connect(banco.config);
 
-    let result = await pool.request().query('SELECT ID_CATEGORIA AS ID, TX_NOME AS NOME, BL_ATIVO AS STATUS, DT_REGISTRO from CATEGORIA');
+    let result = await pool.request().query('SELECT ID_CATEGORIA AS ID, TX_NOME AS NOME, BL_ATIVO AS STATUS, DT_REGISTRO from CATEGORIA where BL_ATIVO = 1');
 
     return(result.recordset);
 };
