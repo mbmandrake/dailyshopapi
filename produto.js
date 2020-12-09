@@ -52,7 +52,14 @@ async function addProduto(produto){
 
 async function updateProduto(produto){
     let pool = await sql.connect(banco.config);
-
+    console.log(produto.id);
+    console.log(produto.nome);
+    console.log(produto.valor);
+    console.log(produto.variacao);
+    console.log(produto.peso);
+    console.log(produto.dimensao);
+    console.log(produto.idCategoria);
+    console.log(produto.ativo);
     let result = await pool.request()
     .input('id', sql.Int, produto.id)
     .input('nome', sql.VarChar, produto.nome)
@@ -63,8 +70,8 @@ async function updateProduto(produto){
     .input('categoria', sql.Int, produto.idCategoria)
     .input('ativo', sql.Bit, produto.ativo)
     .query(
-        'update PRODUTO set TX_NOME = @nome, VALOR_PRODUTO = @valor, TX_VARIACAO = @variacao, PESO = @peso, DIMENSAO = @dimensao, ID_CATEGORIA = @categoria, BL_ATIVO = @ativo where ID_PRODUTO = @id;' +
-        'SELECT ID_PRODUTO AS ID, TX_NOME AS NOME, VALOR_PRODUTO AS VALOR, TX_VARIACAO AS VARIACAO, PESO, DIMENSAO, ID_CATEGORIA AS CATEGORIA, BL_ATIVO AS STATUS, DT_REGISTRO FROM PRODUTO WHERE ID_PRODUTO = @id;'
+        'update PRODUTO set TX_NOME = @nome, VALOR_PRODUTO = @valor, TX_VARIACAO = @variacao, PESO = @peso, DIMENSAO = @dimensao, ID_CATEGORIA = @categoria, BL_ATIVO = @ativo where ID_PRODUTO = @id;'
+        
     );
 
     return(result.recordset);
