@@ -152,6 +152,11 @@ servidor.get('/produto/:id', async (req,res) => {
     res.json(lista);
 });
 
+ervidor.get('/produtoCategoria/:id', async (req,res) => {
+    let lista = await produto.getListaProdutoPorCategoria(req.params.id);
+    res.json(lista);
+});
+
 servidor.post('/produto', async (req,res) => {
     let dados = req.body;
 
